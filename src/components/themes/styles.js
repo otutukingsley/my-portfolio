@@ -25,6 +25,11 @@ ul{
     list-style:none;
 }
 
+img{
+  width: 100%;
+  height: 100%;
+}
+
 .btn{
   padding: 1rem 2rem;
   font-size: 1.2rem;
@@ -108,7 +113,11 @@ background-color: ${({ theme }) => theme.colors.white};
 
 export const Intro = styled.section`
 background-color: ${({ theme}) => theme.colors.white};
-height: 91vh;
+background-image: url('/images/main_bg_light.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center center;
+height: calc(100vh - 67px);
 text-align: center;
 
 
@@ -195,5 +204,58 @@ padding: 1.5rem 0;
       transform: translateY(-2px);
     }
   }
+}
+`
+
+export const ProjectsSection = styled.section`
+background-color: ${({ theme }) => theme.colors.white};
+color: ${({ theme }) => theme.colors.white};
+
+
+.project-wrapper{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  border: 2px solid red;
+}
+
+.project-card{
+  text-align: center;
+  width: 21.875rem;
+  border: 2px solid white;
+  background-color: ${({ theme}) => theme.colors.bgColor2};
+  border-radius: 0.5rem;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+  border: 1px solid rgba(20, 23, 55, 0.1);
+
+
+  .project-pic{
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(20, 23, 55, 0.1);
+  }
+}
+.project-heading{
+  color: black;
+  margin-bottom: 1rem;
+  font-size: clamp(1.5rem, 2.5vw, 3.5rem);
+  text-align: justify;
+  font-size: 1rem
+}
+
+.desc{
+  text-align: left;
+  color: black;
+
+}
+
+.card-header{
+  // border: 2px solid red;
+}
+.card-img-desc{
+  border: 2px solid red;
+  margin: 1rem;
 }
 `
