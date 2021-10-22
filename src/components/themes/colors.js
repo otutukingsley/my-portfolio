@@ -6,6 +6,7 @@ export const theme = {
         bgColor: 'hsl(0, 0%, 98%)',
         bgColor2: '#FAFAFA',
         blueBgColor: 'rgba(255,255,255,.75)',
-        black: '222222',
+        black: '#222222',
+        navColor: '#999999'
     },
   }
