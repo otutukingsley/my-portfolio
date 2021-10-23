@@ -1,24 +1,32 @@
+import React, { Fragment, useState } from 'react'
 import { GlobalStyle } from './components/themes/styles'
 import { ThemeProvider } from 'styled-components'
 import { theme } from './components/themes/colors'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Navbar from './components/layouts/Navbar'
+import MobileNav from './components/layouts/MobileNav'
 import Myintro from './components/Myintro'
 import About from './components/portfolio/About'
 import Projects from './components/portfolio/Projects'
 import Contact from './components/portfolio/Contact'
 import Main from './components/layouts/Main'
 import PortfolioState from './components/context/portfolio/PortfolioStates'
-import React, { Fragment } from 'react'
 
 const App = () => {
+  const [menu, setMenu] = useState(false)
+
+  const handleMenu = () => {
+    setMenu(menu => !menu)
+  }
+
   return (
     <PortfolioState>
       <Router>
         <ThemeProvider theme={theme}>
           <GlobalStyle />
-          <Navbar />
+          <Navbar handleMenu={handleMenu} />
           <Main>
+            <MobileNav menuShow={menu} handleMenu={handleMenu} />
             <Switch>
               <Route
                 exact

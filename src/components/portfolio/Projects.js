@@ -13,11 +13,6 @@ const Projects = () => {
     //eslint-disable-next-line
   }, [])
 
-
-  if(loading){
-    return 'Loading...'
-  }
-
   return (
     <ProjectsSection>
       <div className="border-line"></div>
@@ -26,11 +21,15 @@ const Projects = () => {
           <h1>Portfolio</h1>
           <p>Some of my projects</p>
         </div>
-        <div className="section-content">
-          {projects.map((project, index) => (
-            <ProjectsItem key={index} project={project} />
-          ))}
-        </div>
+        {loading ? (
+          'loading...'
+        ) : (
+          <div className="section-content">
+            {projects.map((project, index) => (
+              <ProjectsItem key={index} project={project} />
+            ))}
+          </div>
+        )}
       </div>
     </ProjectsSection>
   )

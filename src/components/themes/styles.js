@@ -67,10 +67,42 @@ img{
   font-weight: bold;
 }
 
+.grid-1-2{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 1.5rem;
+
+  @media(max-width: 1380px){
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media(max-width: 800px){
+    grid-template-columns: 1fr;
+    
+  }
+}
+
+
+.a-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1.5rem;
+
+  @media(max-width: 1380px){
+    grid-template-columns: 1fr;
+    grid-gap: unset;
+  }
+}
+
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 2.5rem;
+
+  @media(max-width: 920px){
+    grid-template-columns: 1fr;
+    grid-gap: unset;
+  }
 }
 
 .grid-3 {
@@ -82,6 +114,12 @@ img{
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-gap: 1.5rem;
+
+  @media(max-width: 850px){
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+    grid-gap: unset;
+  }
 }
 `
 
@@ -104,8 +142,9 @@ box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
 background-color: ${({ theme }) => theme.colors.black};
 color: ${({ theme }) => theme.colors.navColor};
 
-h1{
-  color: ${({ theme }) => theme.colors.white}
+@media (max-width: 1070px) {
+border-bottom: 1px solid ${({ theme }) => theme.colors.darkFont};
+box-shadow: unset;
 }
 
 .nav-wrapper{
@@ -115,6 +154,23 @@ h1{
  align-items: center;
  justify-content: space-between;
  padding: 1rem 2rem;
+
+
+ .hamburger-btn{
+   background: transparent !important;
+   border: none !important;
+   cursor: pointer !important;
+   color: ${({ theme }) => theme.colors.skyBlue};
+ }
+
+ .nav-heading{
+  color: ${({ theme }) => theme.colors.white};
+
+
+  @media (max-width: 1070px) {
+    font-size: 1.3rem;
+  }
+}
 
  .navigation{
    display: flex;
@@ -164,6 +220,31 @@ background-attachment: fixed;
 -webkit-background-size: cover;
 background-attachment: scroll;
 overflow: hidden;
+
+@media (max-width: 1070px) {
+  padding: 0 0;
+  height: calc(100vh - 60px);
+}
+`
+
+export const MobileMenu = styled.div`
+position: absolute;
+left: 0;
+width: 20rem;
+height:100%;
+background-color: ${({ theme }) => theme.colors.black};
+color: ${({ theme }) => theme.colors.blueBgColor};
+transform: ${({ menu }) => menu ? "translateX(0%)" : "translateX(-100%)"};
+transition: all 0.5s ease-in-out;
+z-index: 1000;
+box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+-webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+-moz-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+
+
+@media (min-width: 1070px) {
+transform: translateX(-100%);
+}
 `
 
 export const Intro = styled.section`
@@ -199,13 +280,17 @@ color: ${({ theme }) => theme.colors.blueBgColor};
 position: relative;
 top: 0;
 left:0;
--webkit-animation: moveFromRight .6s ease both;
-animation: moveFromRight .6s ease both;
+-webkit-animation: moveFromBottom .5s ease both;
+animation: moveFromBottom .5s ease both;
 display: block;
 padding: 60px;
 border-right: 15px solid ${({ theme }) => theme.colors.black};
 overflow-y: auto;
 scroll-behaviour: smooth;
+
+@media(max-width: 1060px){
+padding: 60px 30px;
+}
 
 
 &::-webkit-scrollbar{
@@ -225,16 +310,15 @@ scroll-behaviour: smooth;
   border-radius: 0.5rem;
 }
 
-@-webkit-keyframes moveFromRight {
-  from {
-      -webkit-transform: translateX(100%)
+@-webkit-keyframes moveFromBottom{
+  from{
+    -webkit-transform:translateY(100%);
   }
 }
-
-@keyframes moveFromRight {
-  from {
-      -webkit-transform: translateX(100%);
-      transform: translateX(100%)
+@keyframes moveFromBottom{
+  from{
+    -webkit-transform:translateY(100%);
+    transform:translateY(100%);
   }
 }
 
@@ -287,6 +371,15 @@ scroll-behaviour: smooth;
       -webkit-background-size: cover;
       height: 350px;
       text-align: center;
+
+
+      @media(max-width: 1380px){
+        height: 530px;
+      }
+
+      @media(max-width:800px){
+        display: none;
+      }
     }
 
     .about-text{
@@ -404,23 +497,6 @@ scroll-behaviour: smooth;
 `
 
 export const ProjectsSection = styled(AboutSection)`
--webkit-animation: moveFromLeft .6s ease both;
-animation: moveFromLeft .6s ease both;
-
-
-@-webkit-keyframes moveFromLeft{
-  from{
-    -webkit-transform:translateX(-100%);
-  }
-}
-@keyframes moveFromLeft{
-  from{
-    -webkit-transform:translateX(-100%);
-    transform:translateX(-100%);
-  }
-}
-
-
 .project-container{
   margin: 2rem 0;
   padding: 2rem 0;
@@ -436,7 +512,7 @@ animation: moveFromLeft .6s ease both;
       display: block;
 
       .project-pic{
-        width: 530px !important;
+        width: 100% !important;
         height: 100%;
         box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
         border-radius: .3rem;
@@ -521,23 +597,6 @@ animation: moveFromLeft .6s ease both;
 `
 
 export const ContactSection = styled(AboutSection)` 
--webkit-animation: moveFromBottom .6s ease both;
-animation: moveFromBottom .6s ease both;
-
-
-@-webkit-keyframes moveFromBottom{
-  from{
-    -webkit-transform:translateY(100%);
-  }
-}
-@keyframes moveFromBottom{
-  from{
-    -webkit-transform:translateY(100%);
-    transform:translateY(100%);
-  }
-}
-
-
 .contact-heading{
   display: flex;
   align-items: center;
