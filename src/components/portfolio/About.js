@@ -1,18 +1,30 @@
-import React from 'react'
-import { AboutSection, Container } from '../themes/styles'
+import React, {useEffect, useState} from 'react'
+import { AboutSection } from '../themes/styles'
 import { Link } from 'react-router-dom'
 import { AiOutlineLinkedin, AiOutlineGithub } from 'react-icons/ai'
 
 const About = () => {
+
+const [fade, setFade] = useState(false)
+
+
+useEffect(() => {
+  setFade(true)
+
+  return () => {
+    setFade(false)
+  }
+}, [])
+
   return (
-    <AboutSection>
+    <AboutSection  fade={fade}>
       <div className="border-line"></div>
       <div className="box content-box">
         <div className="header-content">
           <h1>About Me</h1>
           <p>Easy going and a full of life individual</p>
         </div>
-        <div className="about-content grid-3">
+        <div className="section-content grid-3">
           <div className="image-container"></div>
           <div className="about-text">
             <h3>Who am I.</h3>

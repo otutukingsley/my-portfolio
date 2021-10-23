@@ -15,7 +15,6 @@ const PortfolioState = ({ children }) => {
   const getProjects = async () => {
     try {
       const response = await client.getEntries()
-      console.log(response.items)
       dispatch({
         type: GET_PROJECTS,
         payload: response.items,

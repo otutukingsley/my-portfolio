@@ -6,6 +6,7 @@ import Navbar from './components/layouts/Navbar'
 import Myintro from './components/Myintro'
 import About from './components/portfolio/About'
 import Projects from './components/portfolio/Projects'
+import Contact from './components/portfolio/Contact'
 import Main from './components/layouts/Main'
 import PortfolioState from './components/context/portfolio/PortfolioStates'
 import React, { Fragment } from 'react'
@@ -51,7 +52,7 @@ const App = () => {
                 path="/contact"
                 render={() => (
                   <Fragment>
-                    <Projects />
+                    <Contact />
                   </Fragment>
                 )}
               />

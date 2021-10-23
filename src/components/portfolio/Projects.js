@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react'
 import portfolioContext from '../context/portfolio/portfolioContexts'
 import ProjectsItem from './ProjectsItem'
-import { Container, ProjectsSection } from '../themes/styles'
+import { ProjectsSection } from '../themes/styles'
 
 const Projects = () => {
   const context = useContext(portfolioContext)
@@ -10,18 +10,28 @@ const Projects = () => {
 
   useEffect(() => {
     getProjects()
+    //eslint-disable-next-line
   }, [])
+
+
+  if(loading){
+    return 'Loading...'
+  }
 
   return (
     <ProjectsSection>
-      <Container>
-        <h1 className="project-heading">Some of my recent Projects</h1>
-        <div className="project-wrapper">
+      <div className="border-line"></div>
+      <div className="box content-box">
+        <div className="header-content">
+          <h1>Portfolio</h1>
+          <p>Some of my projects</p>
+        </div>
+        <div className="section-content">
           {projects.map((project, index) => (
             <ProjectsItem key={index} project={project} />
           ))}
         </div>
-      </Container>
+      </div>
     </ProjectsSection>
   )
 }
