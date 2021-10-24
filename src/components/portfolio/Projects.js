@@ -11,8 +11,7 @@ const Projects = () => {
   useEffect(() => {
     getProjects()
     //eslint-disable-next-line
-  }, [])
-
+  },[])
   return (
     <ProjectsSection>
       <div className="border-line"></div>

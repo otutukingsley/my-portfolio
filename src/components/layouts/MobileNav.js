@@ -2,17 +2,13 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { MobileMenu } from '../themes/styles'
 
-const MobileNav = ({ menuShow, handleMenu }) => {
-
-
-  const handleMenuHide = () => {
-    handleMenu()
-  }
-
+const MobileNav = ({ menuShow, handleMenu, active, setActiveClass}) => {
   useEffect(() => {
-    const list = document.getElementById('list');
-    const links = list.getElementsByTagName('li');
-    console.log('Effect')
+    const handleMenuHide = () => {
+      handleMenu()
+    }
+    const list = document.getElementById('list')
+    const links = list.getElementsByTagName('li')
     Array.from(links).forEach((link) =>
       link.addEventListener('click', handleMenuHide),
     )
@@ -22,24 +18,43 @@ const MobileNav = ({ menuShow, handleMenu }) => {
         link.addEventListener('click', () => handleMenuHide),
       )
     }
-    //eslint-disable-next-line
-  }, [])
+  }, [handleMenu])
 
   return (
     <MobileMenu menu={menuShow}>
       <div className="mobile-ul" id="list">
         <ul className="mobile-list">
-          <li>
-            <Link to="/">Home</Link>
+          <li onClick={() => setActiveClass(1)}>
+            <Link
+              to="/"
+              className={`mobile-links ${active === 1 ? 'active-mobile' : 'inactive'}`}
+            >
+              Home
+            </Link>
           </li>
-          <li>
-            <Link to="/about">About</Link>
+          <li onClick={() => setActiveClass(2)}>
+            <Link
+              to="/about"
+              className={`mobile-links ${active === 2 ? 'active-mobile' : 'inactive'}`}
+            >
+              About
+            </Link>
           </li>
-          <li>
-            <Link to="/projects">Portfolio</Link>
+          <li onClick={() => setActiveClass(3)}>
+            <Link
+              to="/projects"
+              className={`mobile-links ${active === 3 ? 'active-mobile' : 'inactive'}`}
+            >
+              Portfolio
+            </Link>
           </li>
-          <li>
-            <Link to="/contact">Contact</Link>
+          <li onClick={() => setActiveClass(4)}>
+            <Link
+              to="/contact"
+              className={`mobile-links ${active === 4 ? 'active-mobile' : 'inactive'}`}
+            >
+              Contact
+            </Link>
           </li>
         </ul>
       </div>
@@ -48,4 +63,3 @@ const MobileNav = ({ menuShow, handleMenu }) => {
 }
 
 export default MobileNav
-

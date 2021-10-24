@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useCallback } from 'react'
 import { GlobalStyle } from './components/themes/styles'
 import { ThemeProvider } from 'styled-components'
 import { theme } from './components/themes/colors'
@@ -14,19 +14,28 @@ import PortfolioState from './components/context/portfolio/PortfolioStates'
 
 const App = () => {
   const [menu, setMenu] = useState(false)
+  const [active, setActiveClass] = useState(1)
 
-  const handleMenu = () => {
-    setMenu(menu => !menu)
-  }
+  const handleMenu = useCallback(() => setMenu((menu) => !menu), [])
 
   return (
     <PortfolioState>
       <Router>
         <ThemeProvider theme={theme}>
           <GlobalStyle />
-          <Navbar handleMenu={handleMenu} />
+          <Navbar
+            handleMenu={handleMenu}
+            menuShow={menu}
+            active={active}
+            setActiveClass={setActiveClass}
+          />
           <Main>
-            <MobileNav menuShow={menu} handleMenu={handleMenu} />
+            <MobileNav
+              menuShow={menu}
+              handleMenu={handleMenu}
+              active={active}
+              setActiveClass={setActiveClass}
+            />
             <Switch>
               <Route
                 exact
