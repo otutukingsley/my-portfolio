@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { ContactSection } from '../themes/styles'
+import axios from 'axios'
 
 const Contact = () => {
   const [contact, setContact] = useState({
@@ -9,12 +10,37 @@ const Contact = () => {
   })
 
   const onChange = (e) => {
-    setContact({ ...contact, [e.target.name]: e.target.value })
+    setContact((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }))
   }
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
-    console.log(contact)
+    console.log({ contact })
+    const response = await axios
+      .post('http://localhost:3001/send', {
+        headers: { 'Content-Type': 'application/json' },
+        contact,
+      })
+      .then((res) => res)
+      .then(async (res) => {
+        const resData = await res
+        console.log(resData)
+        if (resData.status === 'success') {
+          alert('Message Sent')
+        } else if (resData.status === 'fail') {
+          alert('Message Failed to send')
+        }
+      })
+      .then(() => {
+        setContact({
+          name: '',
+          email: '',
+          message: '',
+        })
+      })
   }
 
   const { name, email, message } = contact
@@ -31,7 +57,7 @@ const Contact = () => {
           <div className="contact-heading">
             <h3 className="contact-h3">Contact Form</h3>
           </div>
-          <form onSubmit={onSubmit} className="form">
+          <form onSubmit={onSubmit} className="form" method="POST">
             <div className="form-group">
               <input
                 type="text"
