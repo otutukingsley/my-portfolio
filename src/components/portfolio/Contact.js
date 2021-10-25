@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { ContactSection } from '../themes/styles'
-import axios from 'axios'
+import portfolioContext from '../context/portfolio/portfolioContexts'
 
 const Contact = () => {
   const [contact, setContact] = useState({
@@ -8,6 +8,10 @@ const Contact = () => {
     email: '',
     message: '',
   })
+
+  const context = useContext(portfolioContext)
+
+  const { sendEmail } = context
 
   const onChange = (e) => {
     setContact((prevState) => ({
@@ -18,29 +22,30 @@ const Contact = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault()
-    console.log({ contact })
-    const response = await axios
-      .post('http://localhost:3001/send', {
-        headers: { 'Content-Type': 'application/json' },
-        contact,
-      })
-      .then((res) => res)
-      .then(async (res) => {
-        const resData = await res
-        console.log(resData)
-        if (resData.status === 'success') {
-          alert('Message Sent')
-        } else if (resData.status === 'fail') {
-          alert('Message Failed to send')
-        }
-      })
-      .then(() => {
-        setContact({
-          name: '',
-          email: '',
-          message: '',
-        })
-      })
+    sendEmail({ name, email, message })
+    // console.log({ contact })
+    // const response = await axios
+    //   .post('http://localhost:3001/send', {
+    //     headers: { 'Content-Type': 'application/json' },
+    //     contact,
+    //   })
+    //   .then((res) => res)
+    //   .then(async (res) => {
+    //     const resData = await res
+    //     console.log(resData)
+    //     if (resData.status === 'success') {
+    //       alert('Message Sent')
+    //     } else if (resData.status === 'fail') {
+    //       alert('Message Failed to send')
+    //     }
+    //   })
+    //   .then(() => {
+    //     setContact({
+    //       name: '',
+    //       email: '',
+    //       message: '',
+    //     })
+    //   })
   }
 
   const { name, email, message } = contact
