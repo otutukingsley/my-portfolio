@@ -360,6 +360,9 @@ padding: 60px;
 border-right: 15px solid ${({ theme }) => theme.colors.black};
 overflow-y: auto;
 scroll-behaviour: smooth;
+scrollbar-width: thin;          /* "auto" or "thin" */
+scrollbar-color: ${({ theme }) => theme.colors.skyBlue} ${({ theme }) => theme.colors.white};   /* scroll thumb and track */
+
 
 @media(max-width: 1060px){
 padding: 60px 30px;
@@ -371,6 +374,8 @@ padding: 60px 30px;
 
 @media(max-width: 1070px){
   border-right: unset;
+  scrollbar-width: none;
+  scrollbar-color: none;
 }
 
 
@@ -394,6 +399,8 @@ padding: 60px 30px;
   background-color: ${({ theme }) => theme.colors.skyBlue};
   border-radius: 0.5rem;
 }
+
+
 
 @-webkit-keyframes moveFromBottom{
   from{
