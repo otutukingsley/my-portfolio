@@ -2,6 +2,21 @@ import { createGlobalStyle } from 'styled-components'
 import styled from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
+:root{
+
+}
+
+.Toastify__toast-theme--colored.Toastify__toast--info {
+  color: ${({ theme}) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.skyBlue};
+  border-radius: unset;
+}
+
+.Toastify__toast-container {
+  top: 15%;
+  right: 12%;
+}
+
 html{
     scroll-behaviour: smooth;
 }
@@ -359,6 +374,7 @@ display: block;
 padding: 60px;
 border-right: 15px solid ${({ theme }) => theme.colors.black};
 overflow-y: auto;
+overflow-x: hidden;
 scroll-behaviour: smooth;
 scrollbar-width: thin;          /* "auto" or "thin" */
 scrollbar-color: ${({ theme }) => theme.colors.skyBlue} ${({ theme }) => theme.colors.white};   /* scroll thumb and track */

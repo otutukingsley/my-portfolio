@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react'
 import { ContactSection } from '../themes/styles'
 import portfolioContext from '../context/portfolio/portfolioContexts'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const Contact = () => {
   const [contact, setContact] = useState({
@@ -11,7 +13,7 @@ const Contact = () => {
 
   const context = useContext(portfolioContext)
 
-  const { sendEmail } = context
+  const { sendEmail, loading } = context
 
   const onChange = (e) => {
     setContact((prevState) => ({
@@ -21,6 +23,10 @@ const Contact = () => {
   }
 
   const clearInput = () => {
+    if (loading) {
+      return;
+    }
+
     setContact({
       name: '',
       email: '',
@@ -28,10 +34,11 @@ const Contact = () => {
     })
   }
 
-  const onSubmit = async (e) => {
+  const onSubmit = (e) => {
     e.preventDefault()
     sendEmail({ name, email, message })
     clearInput()
+    toast.info('Success', { icon: false, delay: loading && 1000 })
   }
 
   const { name, email, message } = contact
@@ -40,6 +47,18 @@ const Contact = () => {
     <ContactSection>
       <div className="border-line"></div>
       <div className="box content-box">
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+        />
         <div className="header-content">
           <h1>Contact</h1>
           <p>Get in touch</p>
