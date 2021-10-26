@@ -36,7 +36,7 @@ router.post(
     let mailOptions = {
       from: `${req.body.email}`,
       to: process.env.EMAIL,
-      subject: `Portfolio message from: ${req.body.name}`,
+      subject: `Portfolio message from: ${req.body.email}`,
       text: `${req.body.message}`,
     }
 

@@ -1,4 +1,4 @@
-import { GET_PROJECTS } from '../types'
+import { GET_PROJECTS, SEND_EMAIL, EMAIL_NOT_SENT } from '../types'
 
 const portfolioReducer = (state, action) => {
   switch (action.type) {
@@ -7,6 +7,20 @@ const portfolioReducer = (state, action) => {
         ...state,
         projects: action.payload,
         loading: false,
+      }
+
+    case SEND_EMAIL:
+      return {
+        ...state,
+        loading: false,
+        success: action.payload,
+      }
+
+    case EMAIL_NOT_SENT:
+      return {
+        ...state,
+        loading: true,
+        error: action.payload,
       }
     default:
       return state

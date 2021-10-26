@@ -20,32 +20,18 @@ const Contact = () => {
     }))
   }
 
+  const clearInput = () => {
+    setContact({
+      name: '',
+      email: '',
+      message: '',
+    })
+  }
+
   const onSubmit = async (e) => {
     e.preventDefault()
     sendEmail({ name, email, message })
-    // console.log({ contact })
-    // const response = await axios
-    //   .post('http://localhost:3001/send', {
-    //     headers: { 'Content-Type': 'application/json' },
-    //     contact,
-    //   })
-    //   .then((res) => res)
-    //   .then(async (res) => {
-    //     const resData = await res
-    //     console.log(resData)
-    //     if (resData.status === 'success') {
-    //       alert('Message Sent')
-    //     } else if (resData.status === 'fail') {
-    //       alert('Message Failed to send')
-    //     }
-    //   })
-    //   .then(() => {
-    //     setContact({
-    //       name: '',
-    //       email: '',
-    //       message: '',
-    //     })
-    //   })
+    clearInput()
   }
 
   const { name, email, message } = contact

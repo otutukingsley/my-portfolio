@@ -9,6 +9,8 @@ const PortfolioState = ({ children }) => {
   const initialState = {
     projects: [],
     loading: true,
+    error: null,
+    success: null,
   }
 
   const [state, dispatch] = useReducer(portfolioReducer, initialState)
@@ -37,16 +39,14 @@ const PortfolioState = ({ children }) => {
     try {
       const response = await axios.post('/send', formData, config)
 
-      console.log(response)
-
       dispatch({
         type: SEND_EMAIL,
-        payload: response.data
+        payload: response.data,
       })
     } catch (error) {
       dispatch({
         type: EMAIL_NOT_SENT,
-        payload: error.response.data.status
+        payload: error.response.data,
       })
     }
   }
@@ -56,6 +56,8 @@ const PortfolioState = ({ children }) => {
       value={{
         projects: state.projects,
         loading: state.loading,
+        success: state.success,
+        error: state.error,
         getProjects,
         sendEmail,
       }}
