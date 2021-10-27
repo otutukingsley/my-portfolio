@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
-import { ContactSection } from '../themes/styles'
-import portfolioContext from '../context/portfolio/portfolioContexts'
+import { ContactSection } from './ContactStyle'
+import portfolioContext from '../../context/portfolio/portfolioContexts'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 

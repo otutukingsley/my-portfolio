@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react'
-import portfolioContext from '../context/portfolio/portfolioContexts'
+import portfolioContext from '../../context/portfolio/portfolioContexts'
 import ProjectsItem from './ProjectsItem'
-import { ProjectsSection } from '../themes/styles'
+import { ProjectsSection } from './PortfolioStyle'
 
 const Projects = () => {
   const context = useContext(portfolioContext)

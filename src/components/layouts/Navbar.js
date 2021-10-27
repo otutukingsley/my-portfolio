@@ -1,5 +1,5 @@
 import React from 'react'
-import { Nav } from '../themes/styles'
+import { Nav } from './layoutStyles/NavStyle'
 import { Link } from 'react-router-dom'
 import { useViewPort } from '../hooks/Viewport'
 

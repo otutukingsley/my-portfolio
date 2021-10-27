@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { MobileMenu } from '../themes/styles'
+import { MobileMenu } from './layoutStyles/MobileMenuStyle'
 
 const MobileNav = ({ menuShow, handleMenu, active, setActiveClass}) => {
   useEffect(() => {

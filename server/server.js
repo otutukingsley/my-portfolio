@@ -12,4 +12,7 @@ app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`)
 })
 
+//Routes
 app.use("/send", require("./routes/send"));
+
+//Serve Static assets in production

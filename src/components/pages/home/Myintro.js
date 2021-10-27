@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Intro } from './themes/styles'
+import { Container, Intro } from './IntroStyle'
 
 const Myintro = () => {
   return (

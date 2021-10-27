@@ -1,5 +1,5 @@
 import React from 'react'
-import { MainBg } from '../themes/styles'
+import { MainBg } from './layoutStyles/MainBg'
 
 const Main = ({ children }) => {
     return (
