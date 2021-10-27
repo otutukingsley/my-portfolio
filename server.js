@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
+const path = require('path')
 require('dotenv').config()
 
 //middleware
@@ -13,6 +14,14 @@ app.listen(PORT, () => {
 })
 
 //Routes
-app.use("/send", require("./routes/send"));
+app.use('/send', require('./routes/send'))
 
 //Serve Static assets in production
+if (process.env.NODE_ENV == 'production') {
+  //Set up static folder
+  app.use(express.static('client/build'))
+
+  app.get('*', (req, res) =>
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')),
+  )
+}

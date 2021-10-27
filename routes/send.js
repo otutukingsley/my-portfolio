@@ -3,7 +3,7 @@ const router = express.Router()
 const nodemailer = require('nodemailer')
 const { check, validationResult } = require('express-validator')
 
-let email;
+let emailId;
 let word;
 let clientId;
 let clientSecret;
@@ -11,13 +11,13 @@ let refreshToken;
 
 
 if(process.env.NODE_ENV !== 'production'){
-  email = process.env.REACT_APP_EMAIL
+  emailId = process.env.REACT_APP_EMAIL
   word = process.env.REACT_APP_WORD
   clientId = process.env.REACT_APP_OAUTH_CLIENTID
   clientSecret = process.env.REACT_APP_OAUTH_CLIENT_SECRET
   refreshToken = process.env.REACT_APP_OAUTH_REFRESH_TOKEN
 }else{
-  email = process.env.EMAIL
+  emailId = process.env.EMAIL
   word = process.env.WORD
   clientId = process.env.OAUTH_CLIENTID
   clientSecret = process.env.OAUTH_CLIENT_SECRET
@@ -28,7 +28,7 @@ let transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     type: 'OAuth2',
-    user: email,
+    user: emailId,
     pass: word,
     clientId: clientId,
     clientSecret: clientSecret,
@@ -56,17 +56,19 @@ router.post(
     }
     let mailOptions = {
       from: `${req.body.email}`,
-      to: process.env.EMAIL,
+      to: emailId,
       subject: `Portfolio message from: ${req.body.email}`,
       text: `${req.body.message}`,
     }
 
     transporter.sendMail(mailOptions, (err, data) => {
       if (err) {
+        console.log(err)
         res.status(400).json({
           status: 'fail',
         })
       } else {
+        console.log('email sent')
         res.status(200).json({
           status: 'success',
         })
