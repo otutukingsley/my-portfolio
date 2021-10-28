@@ -8,7 +8,11 @@ export const ProjectsSection = styled(AboutSection)`
 }
 
 .project-card{
+  border-bottom: 1px solid ${({ theme}) => theme.colors.darkFont};
 
+  &:last-child{
+    border-bottom: unset;
+  }
   .img-name{
 
     .project-img-container{

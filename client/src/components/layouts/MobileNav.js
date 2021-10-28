@@ -8,7 +8,7 @@ const MobileNav = ({ menuShow, handleMenu, active, setActiveClass}) => {
       handleMenu()
     }
     const list = document.getElementById('list')
-    const links = list.getElementsByTagName('li')
+    const links = list.getElementsByTagName('a')
     Array.from(links).forEach((link) =>
       link.addEventListener('click', handleMenuHide),
     )
