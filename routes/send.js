@@ -7,11 +7,11 @@ let transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     type: 'OAuth2',
-    user: process.env.REACT_APP_EMAIL,
-    pass: process.env.REACT_APP_WORD,
-    clientId: process.env.REACT_APP_OAUTH_CLIENTID,
-    clientSecret: process.env.REACT_APP_OAUTH_CLIENT_SECRET,
-    refreshToken: process.env.REACT_APP_OAUTH_REFRESH_TOKEN,
+    user: process.env.EMAIL,
+    pass: process.env.WORD,
+    clientId: process.env.OAUTH_CLIENTID,
+    clientSecret: process.env.OAUTH_CLIENT_SECRET,
+    refreshToken: process.env.OAUTH_REFRESH_TOKEN,
   },
 })
 
@@ -35,7 +35,7 @@ router.post(
     }
     let mailOptions = {
       from: `${req.body.email}`,
-      to: process.env.REACT_APP_EMAIL,
+      to: process.env.EMAIL,
       subject: `Portfolio message from: ${req.body.email}`,
       text: `${req.body.message}`,
     }
