@@ -7,7 +7,6 @@ import MainPage from './components/pages/mainpage/MainPage'
 
 
 const App = () => {
-  console.log(process.env.REACT_APP_EMAIL)
   return (
     <PortfolioState>
       <ThemeProvider theme={theme}>
