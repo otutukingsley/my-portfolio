@@ -3,36 +3,15 @@ const router = express.Router()
 const nodemailer = require('nodemailer')
 const { check, validationResult } = require('express-validator')
 
-let emailId;
-let word;
-let clientId;
-let clientSecret;
-let refreshToken;
-
-
-if(process.env.NODE_ENV !== 'production'){
-  emailId = process.env.REACT_APP_EMAIL
-  word = process.env.REACT_APP_WORD
-  clientId = process.env.REACT_APP_OAUTH_CLIENTID
-  clientSecret = process.env.REACT_APP_OAUTH_CLIENT_SECRET
-  refreshToken = process.env.REACT_APP_OAUTH_REFRESH_TOKEN
-}else{
-  emailId = process.env.EMAIL
-  word = process.env.WORD
-  clientId = process.env.OAUTH_CLIENTID
-  clientSecret = process.env.OAUTH_CLIENT_SECRET
-  refreshToken = process.env.OAUTH_REFRESH_TOKEN
-}
-
 let transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     type: 'OAuth2',
-    user: emailId,
-    pass: word,
-    clientId: clientId,
-    clientSecret: clientSecret,
-    refreshToken: refreshToken,
+    user: process.env.REACT_APP_EMAIL,
+    pass: process.env.REACT_APP_WORD,
+    clientId: process.env.REACT_APP_OAUTH_CLIENTID,
+    clientSecret: process.env.REACT_APP_OAUTH_CLIENT_SECRET,
+    refreshToken: process.env.REACT_APP_OAUTH_REFRESH_TOKEN,
   },
 })
 
