@@ -65,14 +65,22 @@ const About = () => {
                   <span className="title">Socials</span>
                   <div className="socials">
                     <span className="github">
-                      <Link to="#!">
-                        <AiOutlineLinkedin className="social-icon" />
-                      </Link>
+                      <a
+                        href="https://github.com/otutukingsley"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <AiOutlineGithub className="social-icon" />
+                      </a>
                     </span>
                     <span className="linkedin">
-                      <Link to="#!">
-                        <AiOutlineGithub className="social-icon" />
-                      </Link>
+                      <a
+                        href="https://www.linkedin.com/in/otutu-chinedu-2a5b30195/"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        <AiOutlineLinkedin className="social-icon" />
+                      </a>
                     </span>
                   </div>
                 </li>
