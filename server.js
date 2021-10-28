@@ -11,7 +11,7 @@ app.use(cors())
 
 
 //Routes
-app.use('/send', require('./routes/send'))
+app.use('/api/send', require('./routes/send'))
 
 //Serve Static assets in production
 if (process.env.NODE_ENV == 'production') {

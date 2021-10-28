@@ -37,7 +37,7 @@ const PortfolioState = ({ children }) => {
     }
 
     try {
-      const response = await axios.post('/send', formData, config)
+      const response = await axios.post('/api/send', formData, config)
 
       dispatch({
         type: SEND_EMAIL,
