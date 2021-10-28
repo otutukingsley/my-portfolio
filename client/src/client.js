@@ -1,4 +1,5 @@
 import * as contentful from 'contentful';
+require('dotenv').config();
 
 let spaceId;
 let accessToken;
