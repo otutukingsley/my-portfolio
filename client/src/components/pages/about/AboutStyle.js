@@ -148,7 +148,7 @@ padding: 60px 30px;
       }
 
       p{
-        text-align: justify;
+        text-align: left;
         font-size: .875rem;
         line-height: 1.5;
         color: ${({ theme}) => theme.colors.lightGray};

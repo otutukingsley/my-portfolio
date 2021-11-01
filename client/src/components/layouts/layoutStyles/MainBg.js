@@ -17,6 +17,7 @@ background-attachment: fixed;
 background-attachment: scroll;
 overflow: hidden;
 
+
 @media (max-width: 1070px) {
   padding: 0 0;
   height: calc(100vh - 60px);

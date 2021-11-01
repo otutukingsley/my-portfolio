@@ -28,6 +28,7 @@ const MainPage = () => {
           handleMenu={handleMenu}
           active={active}
           setActiveClass={setActiveClass}
+          setMenu={setMenu}
         />
         <Switch>
           <Route

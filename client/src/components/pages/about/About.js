@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { AboutSection } from './AboutStyle'
-import { Link } from 'react-router-dom'
 import { AiOutlineLinkedin, AiOutlineGithub } from 'react-icons/ai'
 
 const About = () => {
