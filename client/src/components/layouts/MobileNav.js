@@ -15,7 +15,7 @@ const MobileNav = ({ menuShow, handleMenu, active, setActiveClass, setMenu}) => 
     )
     return () => {
       Array.from(links).forEach((link) =>
-        link.addEventListener('click', () => handleMenuHide),
+        link.removeEventListener('click', () => handleMenuHide),
       )
     }
   }, [handleMenu])

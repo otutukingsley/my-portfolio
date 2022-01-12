@@ -49,6 +49,9 @@ transform: translateX(-100%);
       }
     }
 
+    .link-div{
+      border: 2px soild red;
+    }
     .active-mobile{
       color: ${({ theme}) => theme.colors.white}; 
     }

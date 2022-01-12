@@ -10,4 +10,4 @@ export const theme = {
         navColor: '#999999',
         lightGray: '#e5e5e5'
     },
-  }
+}

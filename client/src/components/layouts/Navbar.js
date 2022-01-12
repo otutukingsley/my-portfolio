@@ -6,7 +6,6 @@ import { useViewPort } from '../hooks/Viewport'
 const Navbar = ({ handleMenu, menuShow, active, setActiveClass}) => {
   const { width } = useViewPort()
   const breakpoint = 1070
-  // const [active, setActiveClass] = useState(1)
 
   return (
     <Nav>
