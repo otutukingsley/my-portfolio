@@ -1,49 +1,62 @@
-import React, { useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
-import { MobileMenu } from './layoutStyles/MobileMenuStyle'
+import React, { useEffect, useRef } from "react"
+import { Link } from "react-router-dom"
+import { MobileMenu } from "./layoutStyles/MobileMenuStyle"
 
-const MobileNav = ({ menuShow, handleMenu, active, setActiveClass, setMenu}) => {
+const MobileNav = ({
+  menuShow,
+  handleMenu,
+  active,
+  setActiveClass,
+  setMenu,
+}) => {
   const outsideRef = useRef()
   useEffect(() => {
     const handleMenuHide = () => {
       handleMenu()
     }
-    const list = document.getElementById('list')
-    const links = list.getElementsByTagName('a')
+    const list = document.getElementById("list")
+    const links = list.getElementsByTagName("a")
     Array.from(links).forEach((link) =>
-      link.addEventListener('click', handleMenuHide),
+      link.addEventListener("click", handleMenuHide)
     )
     return () => {
       Array.from(links).forEach((link) =>
-        link.removeEventListener('click', () => handleMenuHide),
+        link.removeEventListener("click", () => handleMenuHide)
       )
     }
   }, [handleMenu])
 
   useEffect(() => {
     const handleOutsideClick = (e) => {
-      if(menuShow){
-        if(outsideRef.current && !outsideRef.current.contains(e.target)){
+      if (menuShow) {
+        if (outsideRef.current && !outsideRef.current.contains(e.target)) {
           handleMenu()
         }
       }
     }
-    document.getElementById('main').addEventListener('mousedown', handleOutsideClick)
+    document
+      .getElementById("main")
+      .addEventListener("mousedown", handleOutsideClick)
 
     return () => {
-      document.getElementById('main').removeEventListener('mousedown', handleOutsideClick)
+      document
+        .getElementById("main")
+        .removeEventListener("mousedown", handleOutsideClick)
     }
   })
 
   return (
     <MobileMenu menu={menuShow}>
       <div className="mobile-ul" id="list" ref={outsideRef}>
+        <div className="mobile-img-container">
+          <img src="/images/indblack.jpeg" alt="Otutu" className="mobile-img" />
+        </div>
         <ul className="mobile-list">
           <li onClick={() => setActiveClass(1)}>
             <Link
               to="/"
               className={`mobile-links ${
-                active === 1 ? 'active-mobile' : 'inactive'
+                active === 1 ? "active-mobile" : "inactive"
               }`}
             >
               Home
@@ -53,7 +66,7 @@ const MobileNav = ({ menuShow, handleMenu, active, setActiveClass, setMenu}) => 
             <Link
               to="/about"
               className={`mobile-links ${
-                active === 2 ? 'active-mobile' : 'inactive'
+                active === 2 ? "active-mobile" : "inactive"
               }`}
             >
               About
@@ -63,7 +76,7 @@ const MobileNav = ({ menuShow, handleMenu, active, setActiveClass, setMenu}) => 
             <Link
               to="/projects"
               className={`mobile-links ${
-                active === 3 ? 'active-mobile' : 'inactive'
+                active === 3 ? "active-mobile" : "inactive"
               }`}
             >
               Portfolio
@@ -73,7 +86,7 @@ const MobileNav = ({ menuShow, handleMenu, active, setActiveClass, setMenu}) => 
             <Link
               to="/contact"
               className={`mobile-links ${
-                active === 4 ? 'active-mobile' : 'inactive'
+                active === 4 ? "active-mobile" : "inactive"
               }`}
             >
               Contact
