@@ -1,9 +1,8 @@
-import { createGlobalStyle } from 'styled-components'
-
+import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyle = createGlobalStyle`
 .Toastify__toast-theme--colored.Toastify__toast--info {
-  color: ${({ theme}) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.skyBlue};
   border-radius: unset;
 }
@@ -26,7 +25,7 @@ html{
 body{
     font-family: 'DM Sans', sans-serif;
     font-size: clamp(1rem, 1.2vw, 1rem);
-    color:${({ theme}) => theme.colors.darkFont};
+    color:${({ theme }) => theme.colors.darkFont};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -59,7 +58,7 @@ img{
 
 .btn-outline-primary{
   background-color: transparent;
-  color: ${({ theme}) => theme.colors.lightGray};
+  color: ${({ theme }) => theme.colors.lightGray};
   border: 2px solid ${({ theme }) => theme.colors.skyBlue};
   font-weight: 100;
   transition: all 0.3s ease-in-out;
@@ -100,7 +99,7 @@ img{
 
 .active{
   border-bottom: 4px solid ${({ theme }) => theme.colors.skyBlue};
-  color: ${({ theme}) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.white};
 }
 
 .inactive{
@@ -137,21 +136,8 @@ img{
 }
 .grid-6 {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  place-items: center;
   grid-gap: 1.5rem;
-
-  @media(max-width: 850px){
-    grid-template-columns: repeat(3, 1fr);
-    place-items: center;
-    grid-gap: unset;
-  }
-
-  @media(max-width: 490px){
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media(max-width: 290px){
-    grid-template-columns: 1fr;
-  }
 }
 `

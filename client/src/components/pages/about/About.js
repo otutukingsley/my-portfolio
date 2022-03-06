@@ -1,6 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { AboutSection } from './AboutStyle'
-import { AiOutlineLinkedin, AiOutlineGithub } from 'react-icons/ai'
+import React, { useEffect, useState } from "react"
+import { AboutSection } from "./AboutStyle"
+import {
+  AiOutlineLinkedin,
+  AiOutlineGithub,
+  AiFillTwitterSquare,
+} from "react-icons/ai"
 
 const About = () => {
   const [fade, setFade] = useState(false)
@@ -32,31 +36,39 @@ const About = () => {
                 define me best. For the past, several months, I have refined my
                 technical and interpersonal skills by learning cutting-edge
                 technologies through challenging educational and adventurous
-                endeavours. <br />
-                <br />I am a critical thinker and dedicated to learning more, so
-                you will always find me collaborating and asking questions to
-                find solutions to complex problems, adapting quickly to new
-                situations, and working well with teams. I can learn new
-                products, processes, and technologies while using my ability to
-                translate complicated technical solutions to any audience.
+                endeavours.
+              </p>
+              <br />
+              <p>
+                I have 1+ years of professional Software Development experience,
+                working in testing and production environments. Involved in
+                building performant, beautiful, reusable and scalable interfaces
+                using modern software development tools. Often collaborating
+                with team members, bringing a committed attitude, reliability,
+                innovation and strong judgement to the table.
               </p>
             </div>
             <div className="about-info">
               <ul className="infos">
                 <li>
-                  <span className="title">Age</span>{' '}
-                  <span className="value">22</span>
+                  <span className="title">Age</span>{" "}
+                  <span className="value">23</span>
                 </li>
                 <li>
-                  <span className="title">Residence</span>{' '}
-                  <span className="value">Nigeria</span>{' '}
+                  <span className="title">Residence</span>{" "}
+                  <span className="value">Nigeria</span>{" "}
                 </li>
                 <li>
-                  <span className="title">e-mail</span>{' '}
-                  <span className="value email">chineduotutu3@gmail.com</span>{' '}
+                  <span className="title">e-mail</span>{" "}
+                  <a
+                    href={`mailto: chineduotutu3@gmail.com`}
+                    className="value email"
+                  >
+                    chineduotutu3@gmail.com
+                  </a>
                 </li>
                 <li>
-                  <span className="title">Hireable</span>{' '}
+                  <span className="title">Hireable</span>{" "}
                   <span className="value">Yes</span>
                 </li>
 
@@ -81,6 +93,15 @@ const About = () => {
                         <AiOutlineLinkedin className="social-icon" />
                       </a>
                     </span>
+                    <span className="linkedin">
+                      <a
+                        href="https://twitter.com/tutuMantutu"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        <AiFillTwitterSquare className="social-icon" />
+                      </a>
+                    </span>
                   </div>
                 </li>
               </ul>
@@ -102,7 +123,19 @@ const About = () => {
               <img src="/images/icons8-javascript.svg" alt="javascript" />
             </div>
             <div className="skill-icon">
+              <img src="/images/icons8-typescript.svg" alt="typescript" />
+            </div>
+            <div className="skill-icon">
               <img src="/images/icons8-react-native.svg" alt="react" />
+            </div>
+            <div className="skill-icon">
+              <img src="/images/icons8-redux.svg" alt="redux" />
+            </div>
+            <div className="skill-icon">
+              <img src="/images/icons8-nodejs.svg" alt="nodejs" />
+            </div>
+            <div className="skill-icon">
+              <img src="/images/icons8-mongodb.svg" alt="mongodb" />
             </div>
             <div className="skill-icon">
               <img src="/images/icons8-git.svg" alt="git" />
