@@ -5,6 +5,7 @@ import {
   AiOutlineGithub,
   AiFillTwitterSquare,
 } from "react-icons/ai"
+import { age } from "../../../utils/calculateAge"
 
 const About = () => {
   const [fade, setFade] = useState(false)
@@ -52,7 +53,7 @@ const About = () => {
               <ul className="infos">
                 <li>
                   <span className="title">Age</span>{" "}
-                  <span className="value">23</span>
+                  <span className="value">{age(1999)}</span>
                 </li>
                 <li>
                   <span className="title">Residence</span>{" "}
@@ -112,35 +113,38 @@ const About = () => {
           <div className="skills-heading">
             <h3 className="skills-h3">Skills</h3>
           </div>
-          <div className="skills-content grid-6">
-            <div className="skill-icon">
+          <div className="skills-content">
+            <div className="skill-icon" title="HTML">
               <img src="/images/icons8-html-5.svg" alt="html" />
             </div>
-            <div className="skill-icon">
+            <div className="skill-icon" title="CSS">
               <img src="/images/icons8-css3.svg" alt="css" />
             </div>
-            <div className="skill-icon">
+            <div className="skill-icon" title="JavaScript">
               <img src="/images/icons8-javascript.svg" alt="javascript" />
             </div>
-            <div className="skill-icon">
+            <div className="skill-icon" title="TypeScript">
               <img src="/images/icons8-typescript.svg" alt="typescript" />
             </div>
-            <div className="skill-icon">
+            <div className="skill-icon" title="React">
               <img src="/images/icons8-react-native.svg" alt="react" />
             </div>
-            <div className="skill-icon">
+            <div className="skill-icon next-js" title="NextJs">
+              <img src="/images/next-js.svg" alt="nextjs" />
+            </div>
+            <div className="skill-icon" title="Redux">
               <img src="/images/icons8-redux.svg" alt="redux" />
             </div>
-            <div className="skill-icon">
+            <div className="skill-icon" title="NodeJs">
               <img src="/images/icons8-nodejs.svg" alt="nodejs" />
             </div>
-            <div className="skill-icon">
+            <div className="skill-icon" title="MongoDB">
               <img src="/images/icons8-mongodb.svg" alt="mongodb" />
             </div>
-            <div className="skill-icon">
+            <div className="skill-icon" title="Git">
               <img src="/images/icons8-git.svg" alt="git" />
             </div>
-            <div className="skill-icon">
+            <div className="skill-icon" title="Bootstrap">
               <img src="/images/icons8-bootstrap.svg" alt="bootstrap" />
             </div>
           </div>

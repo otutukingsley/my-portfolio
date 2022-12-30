@@ -247,9 +247,38 @@ export const AboutSection = styled.section`
 
       .skills-content {
         margin: 2.5rem 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 2rem;
+
+        @media (max-width: 767px) {
+          gap: 1rem;
+        }
 
         .skill-icon {
           width: 110px;
+          position: relative;
+
+          @media (max-width: 767px) {
+            width: 75px;
+          }
+
+          &.next-js{
+            &::before{
+              content: '';
+              position: absolute;
+              left: 2px;
+              top: 2px;
+              width: calc(100% - 5px);
+              height: calc(100% - 8px);
+              background: rgba(255,255,255,1);
+              z-index: -1;
+              border-radius: 50%;
+            }
+          }
 
           img {
             width: 100%;
