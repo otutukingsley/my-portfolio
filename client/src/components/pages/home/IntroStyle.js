@@ -20,6 +20,11 @@ height: 100%;
   .sub-title{
     font-weight: normal;
   }
+
+  .resume-btn{
+    margin-top: 15px;
+    cursor: pointer;
+  }
 }
 `
 
