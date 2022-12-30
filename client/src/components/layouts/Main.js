@@ -4,7 +4,9 @@ import { MainBg } from './layoutStyles/MainBg'
 const Main = ({ children }) => {
   return (
     <main id="main">
-      <MainBg children={children} />
+      <MainBg>
+        {children}
+      </MainBg>
     </main>
   )
 }

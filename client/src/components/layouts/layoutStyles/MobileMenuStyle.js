@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const MobileMenu = styled.div`
-  position: absolute;
+  position: fixed;
   padding: 2rem 0;
   left: 0;
   width: 17rem;
