@@ -40,11 +40,7 @@ export const Nav = styled.nav`
     }
 
     .nav-heading {
-      color: ${({ theme }) => theme.colors.white};
-
-      @media (max-width: 1070px) {
-        font-size: 1.3rem;
-      }
+      line-height: 1em;
     }
 
     .navigation {
