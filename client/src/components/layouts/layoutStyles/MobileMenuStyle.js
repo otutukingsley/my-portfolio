@@ -27,19 +27,21 @@ export const MobileMenu = styled.div`
 
     .mobile-img-container {
       border-radius: 50%;
-      width: 160px;
-      margin: 1rem auto;
+      width: 110px;
+      height: 110px;
+      margin: 0 auto;
+      border: 1px solid ${({ theme }) => theme.colors.skyBlue};
+      overflow: hidden;
     }
 
     .mobile-img {
       width: 100%;
-      border-radius: 50%;
-      object-fit: cover;
+      height: 100%;
     }
 
     .mobile-list {
       width: 100%;
-      margin: 2rem auto;
+      margin: 1rem auto 0 auto;
     }
 
     li {
