@@ -7,9 +7,7 @@ const Myintro = () => {
       <Container>
         <div className="intro-desc">
           <h1 className="intro-title">Otutu Kingsley</h1>
-          <h3 className="sub-title">
-           Frontend-Developer
-          </h3>
+          <h3 className="sub-title">Software Engineer</h3>
         </div>
       </Container>
     </Intro>
