@@ -41,7 +41,7 @@ const About = () => {
               </p>
               <br />
               <p>
-                I have 1+ years of professional Software Development experience,
+                I have 3+ years of professional Software Development experience,
                 working in testing and production environments. Involved in
                 building performant, beautiful, reusable and scalable interfaces
                 using modern software development tools. Often collaborating
