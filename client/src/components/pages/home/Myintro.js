@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Intro } from "./IntroStyle";
-import Resume from "../../../documents/ChineduOtutuResume.pdf";
+import Resume from "../../../documents/ChineduOtutuCV.pdf";
 
 const Myintro = () => {
   return (
