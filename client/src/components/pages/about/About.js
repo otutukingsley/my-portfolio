@@ -53,7 +53,7 @@ const About = () => {
               <ul className="infos">
                 <li>
                   <span className="title">Age</span>{" "}
-                  <span className="value">{age(1999)}</span>
+                  <span className="value">{age(1996)}</span>
                 </li>
                 <li>
                   <span className="title">Residence</span>{" "}
