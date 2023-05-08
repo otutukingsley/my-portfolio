@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from "react"
-import { AboutSection } from "./AboutStyle"
+import React, { useEffect, useState } from "react";
+import { AboutSection } from "./AboutStyle";
 import {
   AiOutlineLinkedin,
   AiOutlineGithub,
   AiFillTwitterSquare,
-} from "react-icons/ai"
-import { age } from "../../../utils/calculateAge"
+} from "react-icons/ai";
+import { age } from "../../../utils/calculateAge";
 
 const About = () => {
-  const [fade, setFade] = useState(false)
+  const [fade, setFade] = useState(false);
 
   useEffect(() => {
-    setFade(true)
+    setFade(true);
 
     return () => {
-      setFade(false)
-    }
-  }, [])
+      setFade(false);
+    };
+  }, []);
 
   return (
     <AboutSection fade={fade}>
@@ -32,12 +32,12 @@ const About = () => {
             <div className="about-text">
               <h3>Who am I.</h3>
               <p>
-                A qualified Frontend Web Developer, who is a determined,
-                easy-going and a full of life individual are the words that
-                define me best. For the past, several months, I have refined my
-                technical and interpersonal skills by learning cutting-edge
-                technologies through challenging educational and adventurous
-                endeavours.
+                A product-focused Software Development Engineer, who is a
+                determined, easy-going and a full of life individual are the
+                words that define me best. For the past, several years, I have
+                refined my technical and interpersonal skills by learning
+                cutting-edge technologies through challenging educational and
+                adventurous endeavours.
               </p>
               <br />
               <p>
@@ -151,7 +151,7 @@ const About = () => {
         </div>
       </div>
     </AboutSection>
-  )
-}
+  );
+};
 
-export default About
+export default About;
