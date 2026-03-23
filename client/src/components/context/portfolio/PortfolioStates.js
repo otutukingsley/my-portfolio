@@ -3,7 +3,7 @@ import portfolioContext from './portfolioContexts'
 import portfolioReducer from './portfolioReducer'
 import { GET_PROJECTS, SEND_EMAIL, EMAIL_NOT_SENT } from '../types'
 import { client } from '../../../client'
-import axios from 'axios'
+import emailjs from '@emailjs/browser'
 
 const PortfolioState = ({ children }) => {
   const initialState = {
@@ -30,23 +30,26 @@ const PortfolioState = ({ children }) => {
   }
 
   const sendEmail = async (formData) => {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }
-
     try {
-      const response = await axios.post('/api/send', formData, config)
+      const response = await emailjs.send(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY,
+      )
 
       dispatch({
         type: SEND_EMAIL,
-        payload: response.data,
+        payload: response,
       })
     } catch (error) {
       dispatch({
         type: EMAIL_NOT_SENT,
-        payload: error.response.data,
+        payload: error,
       })
     }
   }
