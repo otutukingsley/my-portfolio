@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Intro } from "./IntroStyle";
-import Resume from "../../../documents/ChineduOtutuResume-02-24.pdf";
+import Resume from "../../../documents/ChineduOtutuResume-23-26 (2).pdf";
 import {
   AiFillTwitterSquare,
   AiOutlineGithub,
