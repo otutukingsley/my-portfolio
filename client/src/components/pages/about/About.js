@@ -41,7 +41,7 @@ const About = () => {
               </p>
               <br />
               <p>
-                I have 3+ years of professional Software Development experience,
+                I have 8+ years of professional Software Development experience,
                 working in testing and production environments. Involved in
                 building performant, beautiful, reusable and scalable interfaces
                 using modern software development tools. Often collaborating
@@ -109,7 +109,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="skills-container">
+        {/* <div className="skills-container">
           <div className="skills-heading">
             <h3 className="skills-h3">Skills</h3>
           </div>
@@ -148,7 +148,7 @@ const About = () => {
               <img src="/images/icons8-bootstrap.svg" alt="bootstrap" />
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </AboutSection>
   );
